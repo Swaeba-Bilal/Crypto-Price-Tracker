@@ -25,7 +25,7 @@ public class CryptoService {
                 JSONObject coinJson=json.getJSONObject(coin);
                 double price=coinJson.getDouble("usd");
                 double change24h=coinJson.getDouble("usd_24h_change");
-                coinList.add(new CryptoCoin(coin,coin,price,change24h));
+                coinList.add(new CryptoCoin(coin,coin,change24h,price));
             }
         }
 return coinList;

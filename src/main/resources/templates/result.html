@@ -3,13 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <title>Live Crypto Prices</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1b2330; /* deep navy */
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #e0e0e0;
+        }
+
+        div {
+            background: #27323f; /* card panel */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #00bfa5; /* teal accent */
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        div[th\\:if="${error}"] {
+            background: #ffecb3;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            color: #856404;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        thead {
+            background: #00bfa5; /* teal accent */
+        }
+
+        th {
+            padding: 18px 15px;
+            text-align: left;
+            color: #1b2330;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #3a4754;
+            transition: background-color 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background-color: #324152;
+        }
+
+        td {
+            padding: 18px 15px;
+            font-size: 15px;
+        }
+
+        td:first-child {
+            font-weight: 600;
+            color: #00bfa5;
+        }
+
+        td:nth-child(2) {
+            font-weight: 500;
+        }
+
+        td:nth-child(3) {
+            font-weight: 500;
+        }
+
+        /* Green for positive change, red for negative */
+        td:nth-child(3)[th\\:text^="+"] {
+            color: #00e676;
+            font-weight: 600;
+        }
+
+        td:nth-child(3)[th\\:text^="-"] {
+            color: #ff3d00;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            div {
+                padding: 30px 20px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            table {
+                font-size: 14px;
+            }
+            th, td {
+                padding: 12px 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 <div>
-    <h2>Live Crypto Prices</h2>
+    <h2>💰 Live Crypto Prices 📈</h2>
 
     <!-- Error message -->
-    <div th:if="${error}" style="color: red; font-weight: bold; margin-bottom: 10px;">
+    <div th:if="${error}">
         <p th:text="${error}"></p>
     </div>
 

@@ -14,6 +14,7 @@ public class CryptoCoin {
         this.name = name;
         this.change24h = change24h;
         this.price = price;
+
     }
 
     public String getId() {
