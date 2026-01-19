@@ -95,14 +95,14 @@
             font-weight: 500;
         }
 
-        /* Green for positive change, red for negative */
-        td:nth-child(3)[th\\:text^="+"] {
-            color: #00e676;
+        /* Positive / Negative changes */
+        .positive-change {
+            color: #00e676; /* green */
             font-weight: 600;
         }
 
-        td:nth-child(3)[th\\:text^="-"] {
-            color: #ff3d00;
+        .negative-change {
+            color: #ff3d00; /* red */
             font-weight: 600;
         }
 
@@ -144,7 +144,9 @@
         <tr th:each="coin : ${coins}">
             <td th:text="${coin?.name}"></td>
             <td th:text="${coin?.price}"></td>
-            <td th:text="${coin?.change24h}"></td>
+            <td th:text="${coin.change24h >= 0 ? '+' + coin.change24h : coin.change24h}"
+                th:classappend="${coin.change24h >= 0} ? 'positive-change' : 'negative-change'">
+            </td>
         </tr>
         </tbody>
     </table>
