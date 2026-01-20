@@ -6,7 +6,7 @@ This project demonstrates **backend fundamentals**, **API integration**, **serve
 
 ---
 
-## 🟢🔴 Index Page Highlights (Price Indicators)
+## 🟢🔴 Result Page Highlights (Price Indicators)
 
 The **index.html** page immediately reflects market sentiment using **color‑based indicators**:
 
